@@ -108,4 +108,16 @@ document.addEventListener('DOMContentLoaded', function(){
     if (mq.addEventListener) mq.addEventListener('change', handleChange);
     else if (mq.addListener) mq.addListener(handleChange); // fallback
   }
+
+  // Project click handlers - redirect to project detail pages
+  const projects = document.querySelectorAll('.project[data-project]');
+  projects.forEach(project => {
+    project.style.cursor = 'pointer';
+    project.addEventListener('click', function() {
+      const projectSlug = this.getAttribute('data-project');
+      if (projectSlug) {
+        window.location.href = `${projectSlug}.html`;
+      }
+    });
+  });
 });
