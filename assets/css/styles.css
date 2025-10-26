@@ -298,37 +298,8 @@ html, body {
   }
   .nav-toggle {
     display: block;
-  }
-}
-@media (max-width: 700px) {
-  /* Mobile page gutters */
-  .container { padding: 0 20px; }
-
-  /* Hide hero on mobile */
-  .hero { display: none; }
-
-  /* Center the logo in header; place toggle on the left */
-  .header-inner {
-    justify-content: center;
-    position: relative;
-    padding: 0 20px;
-    height: 80px;
-  }
-  /* Absolutely center the logo within the header */
-  .logo {
     position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    margin: 0;
-    z-index: 50;
-  }
-  .logo img {
-    height: 120px;
-  }
-  .nav-toggle {
-    position: absolute;
-    left: 16px;
+    right: 16px;
     top: 50%;
     transform: translateY(-50%);
     font-size: 0;
@@ -337,7 +308,6 @@ html, body {
     cursor: pointer;
     -webkit-tap-highlight-color: transparent;
     transition: all 0.3s ease;
-    display: block;
     border-radius: 50%;
     z-index: 101;
     background: transparent;
@@ -367,10 +337,51 @@ html, body {
     transform: translate(-50%, -50%) translateY(8px);
   }
   
+  .nav-toggle:hover {
+    background: rgba(0, 0, 0, 0.06);
+  }
+  .nav-toggle:active {
+    transform: translateY(-50%) scale(0.9);
+  }
+}
+@media (max-width: 700px) {
+  /* Mobile page gutters */
+  .container { padding: 0 20px; }
+
+  /* Hide hero on mobile */
+  .hero { display: none; }
+
+  /* Center the logo in header; place toggle on the right */
+  .header-inner {
+    justify-content: center;
+    position: relative;
+    padding: 0 20px;
+    height: 80px;
+  }
+  /* Absolutely center the logo within the header */
+  .logo {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0;
+    z-index: 50;
+  }
+  .logo img {
+    height: 120px;
+  }
+  
+  /* Keep toggle on right side */
+  .nav-toggle {
+    right: 16px;
+    left: auto;
+  }
+  
   /* Transform to X when menu is open */
   body.menu-open .nav-toggle {
     position: fixed;
-    left: 16px;
+    right: 16px;
+    left: auto;
     top: 16px;
     transform: none;
   }
@@ -382,12 +393,6 @@ html, body {
     transform: translate(-50%, -50%) rotate(-45deg);
   }
   
-  .nav-toggle:hover {
-    background: rgba(0, 0, 0, 0.06);
-  }
-  .nav-toggle:active {
-    transform: translateY(-50%) scale(0.9);
-  }
   body.menu-open .nav-toggle:active {
     transform: scale(0.9);
     top: 16px;
